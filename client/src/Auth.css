@@ -1,0 +1,45 @@
+
+form {
+background-color: #62b4f9 ;
+position: relative;
+border: 1px solid black;
+
+flex-direction: column;
+width: 400px;
+margin: 130px auto 0px;
+border-radius: 20px;
+padding: 0 1rem 1rem;
+}
+
+form input {
+margin: 0.25rem 0;
+}
+
+form button[type="submit"] {
+width: 40%;
+margin: auto;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+
+.message{
+    display: flex;
+    justify-content: center;
+}
+
+.logoButton{
+    margin-top: 15px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
