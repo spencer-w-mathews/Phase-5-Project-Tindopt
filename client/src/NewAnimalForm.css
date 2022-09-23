@@ -1,0 +1,21 @@
+.animalForm {
+    background-color: #62b4f9 ;
+    position: relative;
+    border: 1px solid black;
+    flex-direction: column;
+    width: 400px;
+    margin: 50px auto 0px;
+    border-radius: 20px;
+    padding: 0 1rem 1rem;
+    display: block;
+    }
+
+form input {
+    display: block;
+    width: 100%;
+    padding: .5rem .8rem .5rem -.5rem;
+    margin: .9vw 0 ;
+    border:0;
+    border-radius: 5px;
+    font-size: 15px;
+    }

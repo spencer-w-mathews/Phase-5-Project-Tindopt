@@ -14,7 +14,7 @@ class CreateAnimals < ActiveRecord::Migration[6.1]
       t.string :fixed
       t.string :housetrained
       t.string :url
-      t.integer :shelter_id
+      t.integer :user_id
 
       t.timestamps
     end

@@ -2,12 +2,10 @@ import React from "react";
 import TinderCard from "react-tinder-card";
 import { useState, useEffect } from "react";
 import "./PetCards.css"
-import { display } from "@mui/system";
-import { LocationCity } from "@mui/icons-material";
 import SwipeButtons from "./SwipeButtons";
 
-function PetCards({user, userPets, setUserPets}){
-    
+function PetCards({user}){
+    const [userPets, setUserPets] = useState([])
     const [isFlipped, setIsFlipped] = useState(false)
     const [pets, setPets] = useState([])
 
@@ -23,7 +21,7 @@ function PetCards({user, userPets, setUserPets}){
 
     
     function onSwipe(direction, pet){
-        if(direction=="right"){
+        if(direction==="right"){
             setUserPets([...userPets, pet])
             fetch("/favorite", {
                 method: "POST",

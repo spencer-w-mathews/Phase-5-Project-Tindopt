@@ -7,27 +7,27 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useState } from "react";
 
-function SavedPets({user}){
-    const [favorites, setFavorites] = useState(user)
+function ShelterAnimals({user}){
+    const [animals, setAnimals] = useState(user.animals)
     function handleDelete(fav){
-        setFavorites(current=>
+        setAnimals(current=>
             current.filter(pet=>{
                 return pet.id !== fav.id;
             })
         )
-        fetch(`/favorites/${fav.id}`, { method: 'DELETE' })
+        fetch(`/animals/${fav.id}`, { method: 'DELETE' })
         .then(() => console.log({ status: 'Delete successful' }));
     }
-if(favorites.length==0){
+if(animals.length==0){
     return(
         <div>
-            <h1>No Pets Saved</h1>
+            <h1>No Pets from your shelter posted</h1>
         </div>
     )
 }else{
     return(
         <div  style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-        {favorites.map(fav=>(
+        {animals.map(fav=>(
    <Card sx={{ maxWidth: 345 }}>
    <CardMedia
      component="img"
@@ -51,6 +51,7 @@ if(favorites.length==0){
     ))
 }
 </div>
-)}}
+)}
+}
 
-export default SavedPets;
+export default ShelterAnimals;

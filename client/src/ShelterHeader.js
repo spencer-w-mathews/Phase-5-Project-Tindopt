@@ -4,7 +4,7 @@ import ForumIcon from '@mui/icons-material/Grade';
 import './Header.css'
 import IconButton from '@mui/material/IconButton';
 
-function Header({setUser}){
+function ShelterHeader({setUser}){
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
@@ -22,7 +22,7 @@ function Header({setUser}){
             <a href='/'>
             <PetsIcon fontSize='large' style={{ color: 'red' }} />
             </a>
-            <a href='/favorites'>
+            <a href='/animals'>
             <IconButton>
             <ForumIcon className='header__icon'/>
             </IconButton>
@@ -32,4 +32,4 @@ function Header({setUser}){
     
 }
 
-export default Header;
+export default ShelterHeader;

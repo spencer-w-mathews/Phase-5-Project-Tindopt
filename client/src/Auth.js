@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import {useLocation, useNavigate} from "react-router"
-import PetsIcon from '@mui/icons-material/Pets';
 import './Auth.css'
 import Logo from './logo.png'
-function Auth({ setUser }) {
+
+function Auth({setUser}){
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginUser, setloginUser] = useState("");
   const [loginPass, setloginPass] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [isClicked, setIsClicked] = useState(true)
+  const [userOrShelter, setUserOrShelter] = useState("")
 
   function handleClick(){
     setIsClicked(isClicked=>!isClicked)
@@ -42,6 +43,7 @@ function Auth({ setUser }) {
       },
       body: JSON.stringify({
         username,
+        user_or_shelter: userOrShelter,
         password,
         password_confirmation: passwordConfirmation,
       }),
@@ -54,7 +56,7 @@ function Auth({ setUser }) {
 
   return (
     <div>
-      <img className="logoButton" src={Logo}/>
+      <img className="logo" src={Logo}/>
 
       <form style={isClicked ? {display:'none'} : {display:'flex'}}  onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
@@ -66,6 +68,15 @@ function Auth({ setUser }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <label >User or Shelter?</label>
+        <select
+          value={userOrShelter}
+          onChange={(e) => setUserOrShelter(e.target.value)}
+        >
+        <option value="Select-one">Select a value</option>
+        <option value="user">user</option>
+        <option value="shelter">shelter</option>
+        </select>
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -82,7 +93,7 @@ function Auth({ setUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-        <button type="submit" >Sign Up</button>
+        <button className="button6" type="submit" >Sign Up</button>
       </form>
 
 
@@ -105,10 +116,10 @@ function Auth({ setUser }) {
           value={loginPass}
           onChange={(e) => setloginPass(e.target.value)}
         />
-        <button type="submit" >Login</button>
+        <button className="button6" type="submit" >Login</button>
       </form>
       <p className="message">{isClicked? 'New To TinDopt?' : 'Already have an Account?'}</p>
-      <button className="center" onClick={handleClick}>{isClicked? 'SignUp' : 'Login'}</button>
+      <button className="center" onClick={handleClick}>{isClicked? 'Register here' : 'Sign in'}</button>
     </div>
   );
 }

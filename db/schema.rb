@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_08_31_170710) do
     t.string "fixed"
     t.string "housetrained"
     t.string "url"
-    t.integer "shelter_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,16 +43,10 @@ ActiveRecord::Schema.define(version: 2022_08_31_170710) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "shelters", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "user_or_shelter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
